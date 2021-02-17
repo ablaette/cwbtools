@@ -116,7 +116,7 @@ s_attribute_encode <- function(values, data_dir, s_attribute, corpus, region_mat
     region_vector <- as.vector(t(region_matrix))
     writeBin(object = region_vector, con = rng_file, size = 4L, endian = "big")
   } else if (method == "CWB"){
-    print("method R")
+    print("method CWB")
     tab <- data.table(region_matrix, s_attribute = values)
     setorderv(tab, cols = "cpos_left", order = 1L)
     
