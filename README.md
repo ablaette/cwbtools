@@ -6,6 +6,8 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3952910.svg)](https://doi.org/10.5281/zenodo.3952910)
 <!-- badges: end -->
 
+# Forked for debugging purposes
+
 # Tools to Create, Modify and Manage Corpora for the Corpus Workbench (CWB)
 
 The [Corpus Workbench (CWB)](http://cwb.sourceforge.net/) is a classic indexing and query engine to efficiently work with large, linguistically annotated corpora. The *cwbtools* package offers a set of tools to conveniently create, modify and manage CWB indexed corpora from within R. It complements R packages that use the CWB as a backend for text mining with R, namely the [RcppCWB](https://CRAN.R-project.org/package=RcppCWB) package for low-level access to CWB indexed corpora, and [polmineR](https://CRAN.R-project.org/package=polmineR) as a toolset to implement common text mining workflows.
