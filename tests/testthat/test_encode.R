@@ -37,7 +37,6 @@ test_that(
       corpus = "AUSTEN", encoding = "utf8",
       p_attributes = c("word", "stem"), 
       s_attributes = "book",
-      s_attributes = NULL,
       registry_dir = cwb_dirs[["registry_dir"]], data_dir = austen_data_dir_tmp,
       method = "R", compress = FALSE
     )
