@@ -6,8 +6,10 @@ test_that(
     library(data.table)
     
     cwb_dirs <- create_cwb_directories(prefix = tempdir(), ask = FALSE, verbose = FALSE)
-    austen_data_dir_tmp <- file.path(cwb_dirs[["corpus_dir"]], "austen")
-    dir.create(austen_data_dir_tmp)
+    austen_data_dir_tmp1 <- file.path(cwb_dirs[["corpus_dir"]], "austen")
+    austen_data_dir_tmp2 <- file.path(cwb_dirs[["corpus_dir"]], "austen2")
+    dir.create(austen_data_dir_tmp1)
+    dir.create(austen_data_dir_tmp2)
 
     Austen <- CorpusData$new()
     
@@ -37,7 +39,8 @@ test_that(
       corpus = "AUSTEN", encoding = "utf8",
       p_attributes = c("word", "stem"), 
       s_attributes = "book",
-      registry_dir = cwb_dirs[["registry_dir"]], data_dir = austen_data_dir_tmp,
+      registry_dir = cwb_dirs[["registry_dir"]],
+      data_dir = austen_data_dir_tmp1,
       method = "R", compress = FALSE
     )
     
@@ -69,8 +72,9 @@ test_that(
     Austen$encode(
       corpus = "AUSTEN2", encoding = "utf8",
       p_attributes = c("word", "stem"), 
-      s_attributes = NULL,
-      registry_dir = cwb_dirs[["registry_dir"]], data_dir = austen_data_dir_tmp,
+      s_attributes = "book",
+      registry_dir = cwb_dirs[["registry_dir"]],
+      data_dir = austen_data_dir_tmp2,
       method = "CWB", compress = FALSE
     )
     
