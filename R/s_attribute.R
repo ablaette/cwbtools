@@ -69,6 +69,7 @@
 #' unlink(data_dir_tmp, recursive = TRUE)
 #' @rdname s_attribute
 s_attribute_encode <- function(values, data_dir, s_attribute, corpus, region_matrix, method = c("R", "CWB"), registry_dir = Sys.getenv("CORPUS_REGISTRY"), encoding, delete = FALSE, verbose = TRUE){
+  print("this is s_attribute_encode")
   stopifnot(
     class(region_matrix)[1] == "matrix",
     ncol(region_matrix) == 2L,
@@ -79,10 +80,12 @@ s_attribute_encode <- function(values, data_dir, s_attribute, corpus, region_mat
     length(verbose) == 1L,
     is.logical(verbose)
   )
+  print("sanity checks have passed")
   if (class(as.vector(region_matrix)) != "integer"){
     region_matrix <- matrix(data = as.integer(as.vector(region_matrix)), ncol = 2)
   }
   if (method == "R"){
+    print("method R")
     avs_file <- file.path(data_dir, paste(s_attribute, "avs", sep = "."), fsep = "/") # attribute values
     avx_file <- file.path(data_dir, paste(s_attribute, "avx", sep = "."), fsep = "/") # attribute value index
     rng_file <- file.path(data_dir, paste(s_attribute, "rng", sep = "."), fsep = "/") # ranges
