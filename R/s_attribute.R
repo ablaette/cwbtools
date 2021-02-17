@@ -116,7 +116,7 @@ s_attribute_encode <- function(values, data_dir, s_attribute, corpus, region_mat
     region_vector <- as.vector(t(region_matrix))
     writeBin(object = region_vector, con = rng_file, size = 4L, endian = "big")
   } else if (method == "CWB"){
-    
+    print("method R")
     tab <- data.table(region_matrix, s_attribute = values)
     setorderv(tab, cols = "cpos_left", order = 1L)
     
@@ -126,7 +126,7 @@ s_attribute_encode <- function(values, data_dir, s_attribute, corpus, region_mat
       tab[["s_attribute"]] <- iconv(tab[["s_attribute"]], from = input_enc, to = encoding)
       Encoding(tab[["s_attribute"]]) <- encoding
     }
-    
+    print("now write tempfile")
     tmp_file <- tempfile()
     data.table::fwrite(x = tab, file = tmp_file, quote = FALSE, sep = "\t", col.names = FALSE)
     
@@ -137,8 +137,10 @@ s_attribute_encode <- function(values, data_dir, s_attribute, corpus, region_mat
       "-f", tmp_file,
       "-V", s_attribute
     )
-    
-    system(paste(cmd, collapse = " "))
+    print("before running cmd")
+    cmd2 <- paste(cmd, collapse = " ")
+    print(cmd2)
+    system(cmd2)
     
   }
   regdata <- registry_file_parse(tolower(corpus), registry_dir = registry_dir)
