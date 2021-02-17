@@ -118,13 +118,19 @@ s_attribute_encode <- function(values, data_dir, s_attribute, corpus, region_mat
   } else if (method == "CWB"){
     print("method CWB")
     tab <- data.table(region_matrix, s_attribute = values)
+    print(dim(tab))
     setorderv(tab, cols = "cpos_left", order = 1L)
     
     # adjust encoding, if necessary
     input_enc <- get_encoding(as.character(tab[["s_attribute"]]))
+    print(input_enc)
+    print(encoding)
     if (input_enc != encoding){
+      print("encodings not identical")
       tab[["s_attribute"]] <- iconv(tab[["s_attribute"]], from = input_enc, to = encoding)
+      print("foo")
       Encoding(tab[["s_attribute"]]) <- encoding
+      print("encoding assigned")
     }
     print("now write tempfile")
     tmp_file <- tempfile()
