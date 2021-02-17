@@ -35,7 +35,7 @@ test_that(
 
     Austen$encode(
       corpus = "AUSTEN", encoding = "utf8",
-      p_attributes = "word", 
+      p_attributes = c("word", "stem"), 
       # s_attributes = "book",
       s_attributes = NULL,
       registry_dir = cwb_dirs[["registry_dir"]], data_dir = austen_data_dir_tmp,
@@ -69,7 +69,7 @@ test_that(
     
     Austen$encode(
       corpus = "AUSTEN2", encoding = "utf8",
-      p_attributes = "word", 
+      p_attributes = c("word", "stem"), 
       s_attributes = NULL,
       registry_dir = cwb_dirs[["registry_dir"]], data_dir = austen_data_dir_tmp,
       method = "CWB", compress = FALSE
