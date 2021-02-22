@@ -91,7 +91,7 @@
       <h1 data-toc-skip>Introducing ‘cwbtools’</h1>
                         <h4 class="author">Andreas Blätte (<a href="mailto:andreas.blaette@uni-due.de" class="email">andreas.blaette@uni-due.de</a>)</h4>
             
-            <h4 class="date">2021-02-17</h4>
+            <h4 class="date">2021-02-22</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/PolMine/cwbtools/blob/master/vignettes/vignette.Rmd"><code>vignettes/vignette.Rmd</code></a></small>
       <div class="hidden name"><code>vignette.Rmd</code></div>
@@ -129,7 +129,7 @@
 <p>In addition to <em>cwbtools</em>, we rely extensively on the <a href="https://CRAN.R-project.org/package=data.table">data.table</a> package. It is a good companion to <em>cwbtools</em> because of its efficiency to handle large data. Apart from the processing speed, it supports in-place modifications of data. When corpora grow large, it is advisable to omit copying the data in memory if not absolutely necessary.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://www.github.com/PolMine/cwbtools">cwbtools</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://Rdatatable.gitlab.io/data.table">data.table</a></span><span class="op">)</span></code></pre></div>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-datatable.com">data.table</a></span><span class="op">)</span></code></pre></div>
 <p>Core operations on structural and positional attributes are implemented in “pure R”, but the CWB can be downloaded and stored within the package using the <code><a href="../reference/cwb_install.html">cwb_install()</a></code> function. In the following examples, we will rely on the “pure R” approach.</p>
 </div>
 <div id="scenario-1-from-xml-to-cwb---un-general-assembly-corpus" class="section level2">
@@ -203,7 +203,7 @@
   compress <span class="op">=</span> <span class="cn">FALSE</span>
   <span class="op">)</span></code></pre></div>
 <pre><code>## === Makeall: processing corpus UNGA ===
-## Registry directory: /var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T//RtmpW3h7ps/registry
+## Registry directory: /var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T//Rtmp4lF7yp/registry
 ## ATTRIBUTE word
 ##  + creating LEXSRT ... OK
 ##  - lexicon      OK
@@ -304,7 +304,7 @@
    method <span class="op">=</span> <span class="st">"R"</span>, compress <span class="op">=</span> <span class="cn">FALSE</span>
 <span class="op">)</span></code></pre></div>
 <pre><code>## === Makeall: processing corpus AUSTEN ===
-## Registry directory: /var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T//RtmpW3h7ps/registry
+## Registry directory: /var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T//Rtmp4lF7yp/registry
 ## ATTRIBUTE word
 ##  + creating LEXSRT ... OK
 ##  - lexicon      OK
@@ -345,28 +345,28 @@
 <span class="va">reuters.tbl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="va">reuters.tm</span><span class="op">)</span>
 <span class="va">reuters.tbl</span></code></pre></div>
 <pre><code>## # A tibble: 20 x 17
-##    author datetimestamp       description heading id    language origin topics
-##    &lt;chr&gt;  &lt;dttm&gt;              &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt; 
-##  1 &lt;NA&gt;   1987-02-26 17:00:56 ""          DIAMON… 127   en       Reute… YES   
-##  2 BY TE… 1987-02-26 17:34:11 ""          OPEC M… 144   en       Reute… YES   
-##  3 &lt;NA&gt;   1987-02-26 18:18:00 ""          TEXACO… 191   en       Reute… YES   
-##  4 &lt;NA&gt;   1987-02-26 18:21:01 ""          MARATH… 194   en       Reute… YES   
-##  5 &lt;NA&gt;   1987-02-26 19:00:57 ""          HOUSTO… 211   en       Reute… YES   
-##  6 &lt;NA&gt;   1987-03-01 03:25:46 ""          KUWAIT… 236   en       Reute… YES   
-##  7 By Je… 1987-03-01 03:39:14 ""          INDONE… 237   en       Reute… YES   
-##  8 &lt;NA&gt;   1987-03-01 05:27:27 ""          SAUDI … 242   en       Reute… YES   
-##  9 &lt;NA&gt;   1987-03-01 08:22:30 ""          QATAR … 246   en       Reute… YES   
-## 10 &lt;NA&gt;   1987-03-01 18:31:44 ""          SAUDI … 248   en       Reute… YES   
-## 11 &lt;NA&gt;   1987-03-02 01:05:49 ""          SAUDI … 273   en       Reute… YES   
-## 12 &lt;NA&gt;   1987-03-02 07:39:23 ""          GULF A… 349   en       Reute… YES   
-## 13 &lt;NA&gt;   1987-03-02 07:43:22 ""          SAUDI … 352   en       Reute… YES   
-## 14 &lt;NA&gt;   1987-03-02 07:43:41 ""          KUWAIT… 353   en       Reute… YES   
-## 15 &lt;NA&gt;   1987-03-02 08:25:42 ""          PHILAD… 368   en       Reute… YES   
-## 16 &lt;NA&gt;   1987-03-02 11:20:05 ""          STUDY … 489   en       Reute… YES   
-## 17 &lt;NA&gt;   1987-03-02 11:28:26 ""          STUDY … 502   en       Reute… YES   
-## 18 &lt;NA&gt;   1987-03-02 12:13:46 ""          UNOCAL… 543   en       Reute… YES   
-## 19 By BE… 1987-03-02 14:38:34 ""          NYMEX … 704   en       Reute… YES   
-## 20 &lt;NA&gt;   1987-03-02 14:49:06 ""          ARGENT… 708   en       Reute… YES   
+##    author  datetimestamp       description heading  id    language origin topics
+##    &lt;chr&gt;   &lt;dttm&gt;              &lt;chr&gt;       &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt; 
+##  1 &lt;NA&gt;    1987-02-26 17:00:56 ""          DIAMOND… 127   en       Reute… YES   
+##  2 BY TED… 1987-02-26 17:34:11 ""          OPEC MA… 144   en       Reute… YES   
+##  3 &lt;NA&gt;    1987-02-26 18:18:00 ""          TEXACO … 191   en       Reute… YES   
+##  4 &lt;NA&gt;    1987-02-26 18:21:01 ""          MARATHO… 194   en       Reute… YES   
+##  5 &lt;NA&gt;    1987-02-26 19:00:57 ""          HOUSTON… 211   en       Reute… YES   
+##  6 &lt;NA&gt;    1987-03-01 03:25:46 ""          KUWAIT … 236   en       Reute… YES   
+##  7 By Jer… 1987-03-01 03:39:14 ""          INDONES… 237   en       Reute… YES   
+##  8 &lt;NA&gt;    1987-03-01 05:27:27 ""          SAUDI R… 242   en       Reute… YES   
+##  9 &lt;NA&gt;    1987-03-01 08:22:30 ""          QATAR U… 246   en       Reute… YES   
+## 10 &lt;NA&gt;    1987-03-01 18:31:44 ""          SAUDI A… 248   en       Reute… YES   
+## 11 &lt;NA&gt;    1987-03-02 01:05:49 ""          SAUDI F… 273   en       Reute… YES   
+## 12 &lt;NA&gt;    1987-03-02 07:39:23 ""          GULF AR… 349   en       Reute… YES   
+## 13 &lt;NA&gt;    1987-03-02 07:43:22 ""          SAUDI A… 352   en       Reute… YES   
+## 14 &lt;NA&gt;    1987-03-02 07:43:41 ""          KUWAIT … 353   en       Reute… YES   
+## 15 &lt;NA&gt;    1987-03-02 08:25:42 ""          PHILADE… 368   en       Reute… YES   
+## 16 &lt;NA&gt;    1987-03-02 11:20:05 ""          STUDY G… 489   en       Reute… YES   
+## 17 &lt;NA&gt;    1987-03-02 11:28:26 ""          STUDY G… 502   en       Reute… YES   
+## 18 &lt;NA&gt;    1987-03-02 12:13:46 ""          UNOCAL … 543   en       Reute… YES   
+## 19 By BER… 1987-03-02 14:38:34 ""          NYMEX W… 704   en       Reute… YES   
+## 20 &lt;NA&gt;    1987-03-02 14:49:06 ""          ARGENTI… 708   en       Reute… YES   
 ## # … with 9 more variables: lewissplit &lt;chr&gt;, cgisplit &lt;chr&gt;, oldid &lt;chr&gt;,
 ## #   topics_cat &lt;named list&gt;, places &lt;named list&gt;, people &lt;chr&gt;, orgs &lt;chr&gt;,
 ## #   exchanges &lt;chr&gt;, text &lt;chr&gt;</code></pre>
@@ -422,7 +422,7 @@
    method <span class="op">=</span> <span class="st">"R"</span>, compress <span class="op">=</span> <span class="cn">FALSE</span>
 <span class="op">)</span></code></pre></div>
 <pre><code>## === Makeall: processing corpus REUTERS ===
-## Registry directory: /var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T//RtmpW3h7ps/registry
+## Registry directory: /var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T//Rtmp4lF7yp/registry
 ## ATTRIBUTE word
 ##  + creating LEXSRT ... OK
 ##  - lexicon      OK
