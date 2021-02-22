@@ -68,7 +68,7 @@ jobs:
 
       - name: Build package
         run: |
-          R CMD build cwbtools/cwbtools
+          R CMD build .
 
       - name: Upload package tarball
         uses: actions/upload-artifact@v2
