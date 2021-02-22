@@ -85,7 +85,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: source-tarball
-          path: *.tar.gz
+          path: cwbtools/*.tar.gz
 
       - name: Upload check results
         if: failure()
