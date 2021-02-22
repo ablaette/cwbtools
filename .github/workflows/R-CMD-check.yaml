@@ -80,6 +80,12 @@ jobs:
           options(crayon.enabled = TRUE)
           rcmdcheck::rcmdcheck(args = c("--no-manual", "--as-cran"), error_on = "warning", check_dir = "check")
         shell: Rscript {0}
+        
+      - name: Upload package tarball
+        uses: actions/upload-artifact@v2
+        with:
+          name: source-tarball
+          path: *.tar.gz
 
       - name: Upload check results
         if: failure()
